@@ -1,5 +1,5 @@
 {
-    "name": "fr3d/xmldsig",
+    "name": "eugeniobonifacio/xmldsig",
     "description": "Tool for easy management of XML Signatures (http://www.w3.org/TR/xmldsig-core/)",
     "license": "BSD-2-Clause",
     "keywords": [
@@ -11,13 +11,19 @@
     ],
     "authors": [
         {
-            "name": "Maks3w",
-            "email": "github.maks3w@virtualplanets.net"
+            "name": "Eugenio Bonifacio",
+            "email": "mail@eugeniobonifacio.com"
         }
     ],
-    "homepage": "https://github.com/Maks3w/xmldsig/",
+    "homepage": "https://github.com/eugeniobonifacio/xmldsig/",
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/eugeniobonifacio/xmlseclibs"
+      }
+    ],
     "require": {
-        "robrichards/xmlseclibs": "^2.0"
+        "eugeniobonifacio/xmlseclibs": "^3.0"
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "1.10.*",
