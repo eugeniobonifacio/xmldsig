@@ -76,6 +76,11 @@ class XmlseclibsAdapter implements AdapterInterface
         $this->publicKey = $publicKey;
     }
 
+    /**
+     * @param DOMNode|null $dom
+     * @return null|string
+     * @throws \Exception
+     */
     public function getPublicKey(DOMNode $dom = null)
     {
         if ($dom) {
@@ -105,6 +110,10 @@ class XmlseclibsAdapter implements AdapterInterface
         $this->transforms[] = $transformType;
     }
 
+    /**
+     * @param DOMDocument $data
+     * @throws \Exception
+     */
     public function sign(DOMDocument $data)
     {
         if (null === $this->privateKey) {
@@ -132,6 +141,11 @@ class XmlseclibsAdapter implements AdapterInterface
         }
     }
 
+    /**
+     * @param DOMDocument $data
+     * @return bool
+     * @throws \Exception
+     */
     public function verify(DOMDocument $data)
     {
         $objKey = null;
@@ -202,6 +216,7 @@ class XmlseclibsAdapter implements AdapterInterface
      * @param DOMNode $dom
      *
      * @return bool `true` If public key was extracted or `false` if cannot be possible
+     * @throws \Exception
      */
     protected function setPublicKeyFromNode(DOMNode $dom)
     {
@@ -219,7 +234,7 @@ class XmlseclibsAdapter implements AdapterInterface
 
         XMLSecEnc::staticLocateKeyInfo($objKey, $objDSig);
         $this->publicKey = $objKey->getX509Certificate();
-        $this->keyAlgorithm = $objKey->getAlgorith();
+        $this->keyAlgorithm = $objKey->getAlgorithm();
 
         return true;
     }
